@@ -1,5 +1,11 @@
+cimport numpy as np
 import numpy as np
+
 from PIL import Image
+
+import cython
+
+
 def binary_image(path,save=True,th=128):
     im = np.array(Image.open(path).convert('L').resize((256, 256)))
     im_bin_th = (im > th) * 255
