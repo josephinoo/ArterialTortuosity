@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import math
 import numpy as np
-from Visualation import*
+from visualation import*
 import math 
 class Graph:
 

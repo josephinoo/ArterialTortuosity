@@ -1,7 +1,6 @@
 import numpy as np
-from Astar import*
+from astar import*
 import math
-
 
 def path_star(matrix):
     path_star = np.array(matrix)
@@ -61,12 +60,7 @@ def geometric_tortuosity(maze):
 
 
 def yes_node(graph, singular):
-    """"
-    Verifier to Choose Nodes
-    :param graph:
-    :param singular:
-
-    """
+    
 
     graph_array = np.array(graph)
     start = []
