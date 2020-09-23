@@ -3,21 +3,17 @@ from astar import*
 import math
 
 def path_star(matrix):
-    path_star = np.array(matrix)
-    path_star = list(path_star[:, 0])
+    path_star = list(np.array(matrix)[:, 0])
     path_star_new = []
     for count, element in enumerate(path_star):
         if element == 0:
             path_star_new.append((count, 0))
-
     return path_star_new
 
 
 def path_end(matrix):
-    path_end = np.array(matrix)
-    path_end = list(path_end[:, -1])
+    path_end =list( np.array(matrix)[:, -1])
     tath = np.array(matrix).shape[1]-1
-
     path_end_new = []
     for count, element in enumerate(path_end):
         if element == 0:
@@ -59,9 +55,8 @@ def geometric_tortuosity(maze):
     return geometric_tortusity
 
 
-def yes_node(graph, singular):
+def verifique_node(graph, singular):
     
-
     graph_array = np.array(graph)
     start = []
     end = []
@@ -94,7 +89,6 @@ def yes_node(graph, singular):
 
 
 def type_porosity(porosity):
-
     if porosity == "free_path" or porosity == "endless_road":
         return "open_porosity"
     else:
