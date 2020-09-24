@@ -3,9 +3,7 @@ import heapq
 
 
 class Node:
-    """
-    A node class for A* Pathfinding
-    """
+  
 
     def __init__(self, parent=None, position=None):
         self.parent = parent
@@ -21,11 +19,11 @@ class Node:
     def __repr__(self):
         return f"{self.position} - g: {self.g} h: {self.h} f: {self.f}"
 
-    # defining less than for purposes of heap queue
+
     def __lt__(self, other):
         return self.f < other.f
 
-    # defining greater than for purposes of heap queue
+
     def __gt__(self, other):
         return self.f > other.f
 
@@ -36,7 +34,7 @@ def return_path(current_node):
     while current is not None:
         path.append(current.position)
         current = current.parent
-    return path[::-1]  # Return reversed path
+    return path[::-1]  
 
 
 def astar(maze, start, end, allow_diagonal_movement=False):
@@ -48,37 +46,36 @@ def astar(maze, start, end, allow_diagonal_movement=False):
     :return:
     """
 
-    # Create start and end node
+
     start_node = Node(None, start)
     start_node.g = start_node.h = start_node.f = 0
     end_node = Node(None, end)
     end_node.g = end_node.h = end_node.f = 0
 
-    # Initialize both open and closed list
+
     open_list = []
     closed_list = []
 
-    # Heapify the open_list and Add the start node
+ 
     heapq.heapify(open_list)
     heapq.heappush(open_list, start_node)
 
-    # Adding a stop condition
+
     outer_iterations = 0
     max_iterations = (len(maze[0]) * len(maze) // 2)
 
-    # what squares do we search
+
     adjacent_squares = ((0, -1), (0, 1), (-1, 0), (1, 0),)
     if allow_diagonal_movement:
         adjacent_squares = ((0, -1), (0, 1), (-1, 0), (1, 0),
                             (-1, -1), (-1, 1), (1, -1), (1, 1),)
 
-    # Loop until you find the end
+
     while len(open_list) > 0:
         outer_iterations += 1
 
         if outer_iterations > max_iterations:
-            # if we hit this point return the path such as it is
-            # it will not contain the destination
+         
             warn("giving up on pathfinding too many iterations")
             return return_path(current_node)
 
