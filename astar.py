@@ -37,7 +37,7 @@ def return_path(current_node):
     return path[::-1]  
 
 
-def astar(maze, start, end, allow_diagonal_movement=False):
+def astar(maze, start, end, allow_diagonal_movement=True):
     """
     Returns a list of tuples as a path from the given start to the given end in the given maze
     :param maze:
